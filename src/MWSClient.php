@@ -1092,7 +1092,37 @@ class MWSClient {
         ];
 
         $appendHeader && $header = array_merge($header, $appendHeader);
-        
+
+        $csv->insertOne($header);
+
+        foreach ($OrderItems as $item) {
+            $csv->insertOne(array_values($item));
+        }
+
+        return $this->SubmitFeed('_POST_FLAT_FILE_FULFILLMENT_ORDER_REQUEST_DATA_', $csv);
+    }
+
+    /**
+     * Post to create a Multi-Channel order (_POST_FLAT_FILE_FULFILLMENT_ORDER_REQUEST_DATA_)
+     * @param array $OrderItems OrderItems
+     * @return array
+     */
+    public function createMfnOrderOfJp($OrderItems = [], array $appendHeader = []) {
+
+        if (!is_array($OrderItems) || !$OrderItems) {
+            throw new Exception('Wrong multi-channel order creation parameters');
+        }
+
+        $csv = Writer::createFromFileObject(new SplTempFileObject());
+        $csv->setDelimiter("\t");
+        $csv->setInputEncoding('Shift_JIS');
+
+        $header = ['MerchantFulfillmentOrderID', 'DisplayableOrderID', 'DisplayableOrderDate', 'MerchantSKU', 'Quantity', 'MerchantFulfillmentOrderItemID', 'DisplayableOrderComment',
+            'DeliverySLA', 'AddressName', 'AddressFieldOne', 'AddressCity', 'AddressCountryCode', 'AddressStateOrRegion', 'AddressPostalCode'
+        ];
+
+        $appendHeader && $header = array_merge($header, $appendHeader);
+
         $csv->insertOne($header);
 
         foreach ($OrderItems as $item) {
