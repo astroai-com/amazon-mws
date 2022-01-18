@@ -399,7 +399,7 @@ class MWSClient {
     }
 
     /**
-     * 
+     *
      * @param DateTime $from
      * @param DateTime $to
      * @param string $type Update OR Create
@@ -1133,7 +1133,7 @@ class MWSClient {
     }
 
     /**
-     * Ship and Confirm Shipment 
+     * Ship and Confirm Shipment
      */
     public function confirmFulfillmentOrder($data = []) {
         if (!$data) {
@@ -1419,7 +1419,8 @@ class MWSClient {
 
             if ($endPoint['action'] === 'SubmitFeed') {
                 $headers['Content-MD5'] = base64_encode(md5($body, true));
-                $headers['Content-Type'] = 'text/xml; charset=iso-8859-1';
+                $charset = $this->config['Marketplace_Id'] == 'A1VC38T7YXB528' ? 'Shift_JIS' : 'iso-8859-1';
+                $headers['Content-Type'] = 'text/xml; charset='.$charset;
                 $headers['Host'] = $this->config['Region_Host'];
 
                 unset(
