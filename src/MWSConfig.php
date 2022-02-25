@@ -26,7 +26,8 @@ class MWSConfig {
         'A39IBJ37TRP1C6' => 'mws.amazonservices.com.au', // AU
         'A2Q3Y263D00KWC' => 'mws.amazonservices.com', // BR
         'A1805IZSGTT6HS' => 'mws-eu.amazonservices.com', // NL
-        'A2NODRKZP88ZB9' => 'mws-eu.amazonservices.com', // Se
-        'A1C3SOZRARQ6R3' => 'mws-eu.amazonservices.com', // Pl
+        'A2NODRKZP88ZB9' => 'mws-eu.amazonservices.com', // SE
+        'A1C3SOZRARQ6R3' => 'mws-eu.amazonservices.com', // PL
+        'A33AVAJ2PDY3EV' => 'mws-eu.amazonservices.com', // TR
     ];
 }
