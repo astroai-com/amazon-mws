@@ -35,5 +35,6 @@ class MWSConfig {
         'A1VN0HAN483KP2' => 'mws.amazonservices.jp', // JP
         'A19VAU5U5O7RUS' => 'mws-fe.amazonservices.com', // SG
         'A39IBJ37TRP1C6' => 'mws.amazonservices.com.au', // AU
+        'A30BMGT8JIOX0F' => 'mws.amazonservices.com.au', // AU
     ];
 }
